@@ -8,5 +8,6 @@ public interface Constant {
 	 int explicit_wait_time =10;
 	 int fluent_wait_time =10;
 	 int polling_time =2;
+	 String login_file=System.getProperty("user.dir") + "\\src\\test\\resources\\data\\login.xlsx";
 
 }
