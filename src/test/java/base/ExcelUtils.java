@@ -29,18 +29,19 @@ public class ExcelUtils {
 
 	public static void setSingleCell_data(String sheetName, int rowNum, int colNum, String data)
 			throws InvalidFormatException, IOException {
-		File file = new File(Constant.login_file);
-		FileInputStream fis = new FileInputStream(file);
-		XSSFWorkbook wb = new XSSFWorkbook(file);
+		// File file = new File(Constant.login_file);
+		FileInputStream fis = new FileInputStream(Constant.login_file);
+		XSSFWorkbook wb = new XSSFWorkbook(fis);
 		XSSFSheet sh = wb.getSheet(sheetName);
 		XSSFRow row = sh.getRow(rowNum);
 		XSSFCell cell = row.createCell(colNum);
+		System.out.println("Cell Created");
 		cell.setCellValue(data);
-		FileOutputStream fos = new FileOutputStream(file);
+		System.out.println("Data has been set");
+		FileOutputStream fos = new FileOutputStream(Constant.login_file);
 		wb.write(fos);
-		fis.close();
+		System.out.println("Value written over the given cell");
 		fos.close();
-		wb.close();
 
 	}
 
@@ -95,5 +96,4 @@ public class ExcelUtils {
 		return credsArray;
 
 	}
-
 }
