@@ -5,7 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class BrowserConfig {
+public  class BrowserConfig {
 
 	public static WebDriver driver;
 
@@ -30,4 +30,5 @@ public class BrowserConfig {
 		}
 		return driver;
 	}
+
 }

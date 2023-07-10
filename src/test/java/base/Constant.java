@@ -9,5 +9,7 @@ public interface Constant {
 	 int fluent_wait_time =10;
 	 int polling_time =2;
 	 String login_file=System.getProperty("user.dir") + "\\src\\test\\resources\\data\\login.xlsx";
+	 public String sheet_name="login";
+	 public String snap_file_path=System.getProperty("user.dir")+"\\src\\test\\resources\\snapshots\\";
 
 }

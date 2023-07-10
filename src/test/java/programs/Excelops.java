@@ -66,10 +66,10 @@ public class Excelops {
 		/*
 		 * 3. Writing Data into the last row
 		 */
-		
-		FileInputStream fis1= new FileInputStream(file);
-		XSSFWorkbook wb1= new XSSFWorkbook(file);
-		XSSFSheet sh1=wb1.getSheetAt(0);
+
+		FileInputStream fis1 = new FileInputStream(file);
+		XSSFWorkbook wb1 = new XSSFWorkbook(file);
+		XSSFSheet sh1 = wb1.getSheetAt(0);
 		XSSFRow WROW = sh1.getRow(6);
 		XSSFCell WCell = WROW.createCell(0);
 		WCell.setCellValue("test6@gmail.com");
@@ -78,7 +78,7 @@ public class Excelops {
 		fos.close();
 		fis1.close();
 		wb1.close();
-		
+
 		driver.close();
 
 	}

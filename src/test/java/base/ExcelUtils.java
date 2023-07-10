@@ -51,19 +51,48 @@ public class ExcelUtils {
 		XSSFSheet sh = wb.getSheet(sheetName);
 		int row_count = sh.getLastRowNum();
 		System.out.println("Total Number of rows=" + row_count);
-		int col_count=sh.getRow(0).getLastCellNum();
-		System.out.println("Column count="+col_count);
-		for(int i=1;i<=row_count;i++) {
-			XSSFRow row=sh.getRow(i);
-			String data=row.getCell(0).toString();
-			System.out.println("Data="+data);
+		int col_count = sh.getRow(0).getLastCellNum();
+		System.out.println("Column count=" + col_count);
+		for (int i = 1; i <= row_count; i++) {
+			XSSFRow row = sh.getRow(i);
+			String data = row.getCell(0).toString();
+			System.out.println("Data=" + data);
 		}
 		fis.close();
 		wb.close();
 
 	}
 
-	public void setSingleCol_data() {
+	public static Object[][] getLoginCreds(String login_file, String sheet_name) throws IOException {
+		
+		int startRow = 1;
+		int StartCol = 0;
+		int ci, cj;
+		int total_col = 1;
+		FileInputStream fis = new FileInputStream(login_file);
+		XSSFWorkbook wb = new XSSFWorkbook(fis);
+		XSSFSheet sh = wb.getSheet(sheet_name);
+		
+		
+		int row_count = sh.getLastRowNum();
+		
+		Object[][] credsArray = new Object[row_count][total_col+1];
+		ci = 0;
+		for (int i = startRow; i <= row_count; i++) {
+			cj = 0;
+			for (int j = StartCol; j <= total_col; j++) {
+				XSSFRow row=sh.getRow(i);
+				String data = row.getCell(j).toString();
+			//	System.out.println("Data["+i+"]+["+j+"]=>"+data);
+				credsArray[ci][cj]=data;
+               cj++;
+			}
+			ci++;
+		}
+		fis.close();
+		wb.close();
+
+		return credsArray;
 
 	}
 
